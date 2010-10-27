@@ -5,7 +5,8 @@
 # Ruby #
 ## Yet another programming language? ##
 
-Yes, but with some interesting features
+### Yes, but with some interesting features ###
 
+* Interpreted language
 * Dynamic language
 * Non-typed language

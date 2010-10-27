@@ -322,3 +322,10 @@ a.fg-button { float:left; }
     font-family: Monaco, monospace;
   }
 }
+
+.my_table{
+    border: 1px solid gray; 
+    width:400px;     margin-left:200px;  
+}
+
+
