@@ -2,9 +2,7 @@
 # user.rb #
 
     @@@ ruby
-    
     module JajahApi
-    
       class User
         %W(name surname phone).each{|attr|
            attr_accessor attr.to_sym
