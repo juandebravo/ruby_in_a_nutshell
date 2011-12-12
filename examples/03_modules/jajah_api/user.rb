@@ -2,27 +2,45 @@
 module JajahApi
 
   class User
-    %W(name surname phone).each{|attr|
-       attr_accessor attr.to_sym
-    }
+    attr_accessor :name
+    attr_accessor :surname
+    attr_accessor :phone
+    attr_accessor :dids
 
-    def initialize(params=nil)
-      unless params.nil?
-        @name    = params[:name]   unless params[:name].nil?
-        @surname = params[:surname] unless params[:surname].nil?
-        @phone   = params[:phone] unless params[:phone].nil?
+    def allocate_did(did)
+      @dids ||= []
+      @dids.push(did)
+    end
+
+    # %w<name surname phone>.each do |attr|
+    #   attr_accessor attr.to_sym
+    # end
+
+    def initialize(params = {})
+      
+      unless params.empty?
+        @name    = params[:name]    if params.has_key?(:name)
+        @surname = params[:surname] if params.has_key?(:surname)
+        @phone   = params[:phone]   if params.has_key?(:phone)
       end
+
     end
 
     def to_s
+
       data = String.new
-      data << "#{self.name}{ "
+      data << "\n#{self.name} { "
       data << "\n"
-      self.instance_variables.each{|var|
-        data << "  " + var[1..-1] + ": " + self.instance_variable_get(var) + "\n"
-      }
-      data << "}"
-      return data
+      data << " name: #{name}\n"
+      data << " surname: #{surname}\n"
+      data << " phone: #{phone}\n"
+      
+      #self.instance_variables.each do |var|
+      #  data << " " + var[1..-1] + ": " + self.instance_variable_get(var) + "\n"
+      #end
+
+      data << "}\n\n"
+      data
     end
   end
 end

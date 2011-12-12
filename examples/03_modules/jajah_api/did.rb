@@ -3,8 +3,8 @@ module JajahApi
 
   class Did
 
-    def initialize(params=nil)
-      unless params.nil?
+    def initialize(params = {})
+      unless params.empty?
         @number    = params[:number]   unless params[:number].nil?
         @hold_key  = params[:hold_key] unless params[:hold_key].nil?
       end
